@@ -1,0 +1,120 @@
+version: "3.1"
+
+intents:
+- greet
+- report_symptom
+- confirm
+- reply_age_group
+- reply_duration
+- reply_other_symptoms
+- reply_medication
+- reply_helpful
+- deny
+- provide_more_details
+
+# collapsed primary_symptom and other_symptoms into symptoms
+entities:
+- symptoms
+- age_group
+- duration
+- medications
+
+slots:
+  symptoms:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: symptoms
+
+
+  age_group:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: age_group
+      # intent: reply_age_group
+
+  duration:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: duration
+      # intent: reply_duration
+
+  medications:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: medications
+      # intent: reply_medication
+  
+  # these slots are used to store the information about the health aspects from the NHS API
+  condition: # chatgpt will try to get the condition from the reported details by the user
+    type: text
+    mappings:
+    - type: custom
+    
+
+forms:
+  user_details_form:
+    required_slots:
+    - symptoms
+    - age_group
+    - duration
+    - medications
+    ignored_intents:
+    - greet
+    - confirm
+    - deny
+    
+
+  
+responses:
+  utter_greet:
+  - text: "Hello! I am a bot that can help you with your health concerns. How can I help you today?"
+
+  utter_empathize_get_more_info:
+  - text: "I'm sorry to hear that. I'll ask you a few questions to help understand your situation better. Your info is not stored and will not be used for any other purpose. Hope that is okay?"
+
+  utter_ask_age_group:
+  - text: "Can you tell me which age group you belong to? 0-12, Teen[13-19], Youth[20-40], Above 40"
+
+  utter_ask_duration:
+  - text: "Can you tell me how long you have been experiencing this symptom?"
+  - text: "How long have you been having this symptom?"
+
+  utter_ask_other_symptoms:
+  - text: "Can you tell me if you have any other symptoms?"
+  - text: "Are you experiencing any other symptoms, like fever or dizziness?"
+
+  utter_ask_medications:
+  - text: "Can you tell me if you are taking any medication?"
+  - text: "Have you taken any medications or other preventive measures? If yes, Pls state them"
+
+  utter_thank_you_and_check_nhs:
+  - text: "Thank you for sharing this information. Please wait a moment while I check the NHS database for the most accurate diagnosis for your situation. This will only take a few seconds."
+
+  utter_ask_helpful:
+  - text: "I hope you found this information helpful?"
+
+  utter_bot_happy:
+  - text: "I'm glad I could help you. Have a great day!"
+
+  utter_ask_more_details:
+  - text: "Can you provide more details about your symptoms, such as severity or additional signs?"
+
+actions:
+- action_get_nhs_info
+- action_match_symptoms_to_condition
+
+
+ 
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+
