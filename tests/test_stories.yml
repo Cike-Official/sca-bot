@@ -1,0 +1,102 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa-pro/nlu-based-assistants/testing-your-assistant
+
+
+stories:
+
+- story: Happy path
+  steps:
+  - intent: greet
+    user: |-
+      hi
+  - action: utter_greet
+  - intent: report_symptom
+    user: |-
+      i have a [headache](symptoms) and i feel [feverish](symptoms)
+  - slot_was_set:
+    - symptoms:
+      - headache
+      - feverish
+  - action: utter_empathize_get_more_info
+  - intent: confirm
+    user: |-
+      okay, continue
+  - action: user_details_form
+  - active_loop: user_details_form
+  - slot_was_set:
+    - requested_slot: age_group
+  - intent: reply_age_group
+    user: |-
+      i am [48 yrs](age_group)
+  - slot_was_set:
+    - age_group: 48 yrs
+  - action: user_details_form
+  - slot_was_set:
+    - requested_slot: duration
+  - intent: reply_duration
+    user: |-
+      for [3 days](duration) now
+  - slot_was_set:
+    - duration: 3 days
+  - action: user_details_form
+  - slot_was_set:
+    - requested_slot: medications
+  - intent: reply_medication
+    user: |-
+      yes. [paracetamol](medications)
+  - slot_was_set:
+    - medications:
+      - paracetamol
+  - action: user_details_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_match_symptoms_to_condition
+  - slot_was_set:
+    - condition: headaches
+  - action: action_get_nhs_info
+  - action: utter_ask_helpful
+  - intent: reply_helpful
+    user: |-
+      helpful indeed    
+  - action: utter_bot_happy
+
+
+
+
+
+- story: Sad Path 1
+  steps:
+  - intent: greet
+    user: |-
+      hello there
+  - action: utter_greet
+
+  - intent: report_symptom
+    user: |-
+      I have a [splitting headache](symptoms)
+  - slot_was_set:
+    - symptoms:
+      - splitting headache
+  - action: utter_empathize_get_more_info
+
+  - intent: deny
+    user: |-
+      no
+  - action: utter_ask_more_details
+
+  - intent: provide_more_details
+    user: |-
+      I’ve been experiencing blurred vision and headaches, and I’m worried it might be serious. and I am 42 yrs old
+  - action: action_match_symptoms_to_condition
+  - slot_was_set:
+    - condition: null
+  - action: action_get_nhs_info
+  - action: utter_ask_helpful
+
+  - intent: deny
+    user: |-
+      nothing at all
+  - action: utter_ask_more_details
+
+  

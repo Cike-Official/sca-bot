@@ -1,0 +1,187 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: report_symptom
+  examples: |
+    - I have a [splitting headache](symptoms). What can I do to stop it?
+    - I feel [nauseous](symptoms) and [dizzy](symptoms), and I don’t know why.
+    - My [stomach has been hurting](symptoms) for the past few hours.
+    - I’ve had a [sore throat](symptoms) and a [cough](symptoms) for [three days](duration) now.
+    - I’m experiencing [sharp pain in my chest](symptoms), and it’s worrying me.
+    - I’ve been feeling [extremely tired](symptoms) and [weak](symptoms) lately.
+    - I have a [rash on my arm](symptoms) that’s itchy and red.
+    - I’ve been having [trouble breathing](symptoms), especially when I walk.
+    - I’ve had a [fever](symptoms) and [body aches](symptoms) since [yesterday](duration).
+    - My [back hurts](symptoms) so much, and I can’t seem to find relief.
+    - I’ve been having [diarrhea](symptoms) and [stomach cramps](symptoms) for two days.
+    - I feel like I have a [cold—runny nose](symptoms), [sneezing](symptoms), and a [headache](symptoms).
+    - I’ve been having [trouble sleeping](symptoms) and feel [restless at night](symptoms).
+    - I’ve noticed [swelling in my ankles](symptoms), and I’m not sure why.
+    - I’ve been having [joint pain](symptoms), especially in my knees and wrists.
+
+- intent: reply_helpful
+  examples: |
+    - That was helpful, thank you.
+    - I appreciate the information, thanks.
+    - Thanks for the advice, I’ll try that.
+    - I’ll keep that in mind, thank you.
+    - I found that helpful, thanks.
+    - I’ll try that out, thanks for the tip.
+    - I’ll give that a shot, thanks.
+    - I’ll try that remedy, thank you.
+    - I’ll follow your advice, thanks.
+    - I’ll take your suggestion, thank you.
+    - I’ll try that out, thank you.
+    - I’ll keep that in mind, thank you.
+    - I’ll give that a shot, thank you.
+    - I’ll try that remedy, thank you.
+    - I’ll follow your advice, thank you.
+    - I’ll take your suggestion, thank you.
+
+- intent: confirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - i don't mind
+    - absolutely
+    - go on
+    - okay, continue
+    - sure
+    - yes please
+    - no problem
+    - alright
+    - pls continue
+    - by all means
+
+- intent: reply_age_group
+  examples: |
+    - I’m a [teenager](age_group)
+    - Youth, [20-40](age_group).
+    - I’m 25, so Youth.
+    - I fall under [teen](age_group).
+    - I’m [22, Youth](age_group).
+    - I’m in the [20-40 range](age_group).
+    - Youth, [early 30s](age_group).
+    - I’m in my [late 20s](age_group)
+    - I’m in the Youth age group.
+    - [12 years old](age_group)
+    - [13 - 19 years old](age_group)
+    - [teen](age_group)
+    - [youth](age_group)
+    - [above 40](age_group)
+    - [adult](age_group)
+    - [middle-aged](age_group)
+    - [adolescent](age_group)
+    - [baby](age_group)
+    - [child](age_group)
+    - [elderly](age_group)
+
+- intent: reply_duration
+  examples: |
+    - For about [a week](duration) now.
+    - It started [yesterday](duration).
+    - I’ve had it for the past [3 days](duration).
+    - It’s been going on for almost [two weeks](duration).
+    - Just since [this morning](duration).
+    - I noticed it a [few hours](duration) ago.
+    - It’s been about [a month](duration).
+    - For the last [5 days](duration).
+    - It started a [couple of days](duration) ago.
+    - I’ve been feeling this way for the [past week](duration).
+    - It’s been on and off for about [10 days](duration).
+    - Since [last night](duration).
+    - It’s been happening for the past [2 weeks](duration).
+    - I’ve had it for a [few days](duration) now.
+    - It started around [3 days](duration) ago.
+
+- intent: reply_other_symptoms
+  examples: |
+    - Yes, I’ve been [feeling dizzy](symptoms) and have a [slight fever](symptoms).
+    - No, just the [cough](symptoms) and [sore throat](symptoms), nothing else.
+    - I’ve been having [headaches](symptoms) and feeling really [tired](symptoms).
+    - Yes, I’ve had a high [fever](symptoms) and some [chills](symptoms).
+    - No other symptoms, just the [stomach pain](symptoms).
+    - I’ve been feeling [nauseous](symptoms) and have had a [loss of appetite](symptoms).
+    - Yes, I’ve been experiencing [shortness of breath](symptoms) and [chest tightness](symptoms).
+    - I’ve had a [runny nose](symptoms) and [sneezing](symptoms), but no fever or dizziness.
+    - I’ve been having [muscle aches](symptoms) and a [mild headache](symptoms).
+    - Yes, I’ve been feeling [lightheaded](symptoms) and have had some [sweating](symptoms).
+    - No, just the [rash](symptoms) on my skin, no other symptoms.
+    - I’ve been having [trouble sleeping](symptoms) and feel [more anxious](symptoms) than usual.
+    - Yes, I’ve had a [sore throat](symptoms) and some [body aches](symptoms).
+    - I’ve been [feeling bloated](symptoms) and have had some [diarrhea](symptoms).
+    - No, just the joint pain, nothing else to report.
+
+- intent: reply_medication
+  examples: |
+    - [paracetamol](medications)
+    - i took [panadol](medications) this morning
+    - I was prescribed to take [vitamin c](medications)
+    - I haven't taken any meds yet.
+    - Yes, I’ve been taking [ibuprofen](medications) for the pain and some [antihistamines](medications) for my allergies.
+    - I’m on a daily [multivitamin](medications) and occasionally take [paracetamol](medications) when I have a headache.
+    - No, I haven’t taken any medications or preventive measures recently.
+    - I’ve been using an [inhaler](medications) for my asthma and taking [vitamin C supplements](medications).
+    - Yes, I take [metformin](medications) for diabetes and a [statin](medications) for cholesterol.
+    - I’ve been using over-the-counter cold medicine and drinking [herbal teas](medications).
+    - I’m on [birth control pills](medications), but that’s the only medication I take regularly.
+    - I’ve been taking [antibiotics](medications) for a sinus infection and some [probiotics](medications) to help with digestion.
+    - [No medications](medications), but I’ve been using [essential oils](medications) and practicing yoga to stay healthy.
+    - I take [antidepressants](medications) daily and occasionally use [melatonin](medications) for sleep.
+    - I’ve been using a [nasal spray](medications) for congestion and taking [zinc supplements](medications).
+    - Yes, I’m on blood pressure medication and take [aspirin](medications) as a preventive measure.
+    - I’ve been taking [iron supplements](medications) for anemia and using a [topical cream](medications) for my eczema.
+    - No, I haven’t taken anything, but I’ve been trying to eat healthier and exercise more.
+    - I’ve been using a prescription cream for my skin condition and taking allergy medication as needed.
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - definitely not
+    - I don't agree
+    - I don't think so
+
+# LLM will extract the entities from this intent
+- intent: provide_more_details
+  examples: |
+    - I’ve been having a persistent cough for the past week, along with mild chest pain.
+    - I feel dizzy and nauseous, especially in the mornings, and I’ve been experiencing headaches.
+    - I have a rash on my arms and legs that’s been itchy and spreading over the last few days.
+    - I’ve been feeling extremely fatigued, even after a full night’s sleep, and my muscles ache.
+    - I’ve had a sore throat and a fever for about three days now, and it’s not getting better.
+    - I’ve been having trouble breathing, especially when I walk or do any physical activity.
+    - My stomach has been upset for the past few days, with diarrhea and occasional vomiting.
+    - I’ve been experiencing sharp pain in my lower back, and it’s making it hard to move around.
+    - I’ve noticed swelling in my ankles and feet, and I’ve been feeling more tired than usual.
+    - I’ve been having trouble sleeping, and when I do sleep, I wake up feeling unrested.
+    - I’ve been having frequent heartburn and a burning sensation in my chest after eating.
+    - I’ve been feeling anxious and having panic attacks, which is unusual for me.
+    - I’ve been having joint pain and stiffness, especially in my knees and hands.
+    - I’ve been experiencing blurred vision and headaches, and I’m worried it might be serious.
+    - I’ve had a high fever and chills for the past two days, along with body aches.

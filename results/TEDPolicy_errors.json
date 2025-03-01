@@ -1,0 +1,69 @@
+[
+  {
+    "text": "i have a headache and i feel feverish",
+    "entities": [
+      {
+        "start": 9,
+        "end": 17,
+        "value": "headache",
+        "entity": "symptoms"
+      },
+      {
+        "start": 29,
+        "end": 37,
+        "value": "feverish",
+        "entity": "symptoms"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "i am 48 yrs",
+    "entities": [
+      {
+        "start": 5,
+        "end": 11,
+        "value": "48 yrs",
+        "entity": "age_group"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "for 3 days now",
+    "entities": [
+      {
+        "start": 4,
+        "end": 10,
+        "value": "3 days",
+        "entity": "duration"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "yes. paracetamol",
+    "entities": [
+      {
+        "text": "yes. paracetamol",
+        "start": 5,
+        "end": 16,
+        "entity": "medications",
+        "value": "paracetamol"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have a splitting headache",
+    "entities": [
+      {
+        "start": 9,
+        "end": 27,
+        "value": "splitting headache",
+        "entity": "symptoms"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

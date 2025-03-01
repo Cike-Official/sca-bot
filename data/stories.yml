@@ -1,0 +1,99 @@
+version: "3.1"
+
+stories:
+
+- story: User consents to share info and gets a diagnosis
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: report_symptom
+  - action: utter_empathize_get_more_info
+  - intent: confirm
+  - action: user_details_form
+  - active_loop: user_details_form
+  - action: utter_ask_age_group
+  - intent: reply_age_group
+  - action: utter_ask_duration
+  - intent: reply_duration
+  - action: utter_ask_other_symptoms
+  - intent: reply_other_symptoms
+  - action: utter_ask_medications
+  - intent: reply_medication
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_thank_you_and_check_nhs
+  - action: action_match_symptoms_to_condition
+  # - slot_was_set:
+  #   - requested_slot: condition
+  - action: action_get_nhs_info
+  - action: utter_ask_helpful
+  - intent: reply_helpful
+  - action: utter_bot_happy
+
+- story: User does not consent to share info
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: report_symptom
+  - action: utter_empathize_get_more_info
+  - intent: deny
+  - action: utter_ask_more_details
+  - intent: provide_more_details
+  # - action: action_confirm_user_details
+  # - intent: confirm
+  - action: action_match_symptoms_to_condition
+  # - slot_was_set:
+  #   - requested_slot: condition
+  - action: action_get_nhs_info
+  - action: utter_ask_helpful
+  - intent: reply_helpful
+  - action: utter_bot_happy
+
+- story: User is not satisfied with initial diagnosis
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: report_symptom
+  - action: utter_empathize_get_more_info
+  - intent: confirm
+  - action: user_details_form
+  - active_loop: user_details_form
+  - action: utter_ask_age_group
+  - intent: reply_age_group
+  - action: utter_ask_duration
+  - intent: reply_duration
+  - action: utter_ask_other_symptoms
+  - intent: reply_other_symptoms
+  - action: utter_ask_medications
+  - intent: reply_medication
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_thank_you_and_check_nhs
+  - action: action_match_symptoms_to_condition
+  - action: action_get_nhs_info
+  - action: utter_ask_helpful
+  - intent: deny
+  - action: utter_ask_more_details
+  - intent: provide_more_details
+  # - action: action_confirm_user_details
+  # - intent: confirm
+  - action: action_match_symptoms_to_condition
+  - action: action_get_nhs_info
+  - action: utter_ask_helpful
+  - intent: reply_helpful
+  - action: utter_bot_happy
+
+# - story: User provides minimal info but gets a diagnosis
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: report_symptom
+#   - action: utter_empathize_get_more_info
+#   - intent: confirm
+#   - action: action_match_symptoms_to_condition
+#   - action: action_get_nhs_info
+#   - action: utter_thank_you_and_check_nhs  
+#   - action: action_get_nhs_info
+#   - action: utter_ask_helpful
+#   - intent: reply_helpful
+#   - action: utter_bot_happy

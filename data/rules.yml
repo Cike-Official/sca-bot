@@ -1,0 +1,107 @@
+version: "3.1"
+
+rules:
+
+- rule: Greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Start form on symptom report
+  steps:
+  # - intent: report_symptom
+  - action: utter_empathize_get_more_info
+  - intent: confirm
+  - action: user_details_form
+  - active_loop: user_details_form
+  wait_for_user_input: false
+
+- rule: Handle form submission and diagnosis
+  condition:
+  - active_loop: user_details_form
+  - slot_was_set:
+    - symptoms
+    - age_group
+    - duration
+    - medications
+  steps:
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_thank_you_and_check_nhs
+  - action: action_match_symptoms_to_condition
+  - action: action_get_nhs_info
+  wait_for_user_input: false
+  # - action: utter_ask_helpful
+
+
+# - rule: User denies consent
+#   steps:
+#   - intent: report_symptom
+#   - action: utter_empathize_get_more_info
+#   - intent: deny
+#   - action: utter_ask_more_details
+#   - intent: provide_more_details
+#   - intent: confirm
+#   - action: action_match_symptoms_to_condition
+#   - action: action_get_nhs_info
+#   - action: utter_ask_helpful
+
+# - rule: Handle additional details after initial diagnosis
+#   condition:
+#   - slot_was_set:
+#     - condition
+#   steps:
+#   - intent: deny  # User not satisfied
+#   - action: utter_ask_more_details
+#   - intent: provide_more_details
+#   - intent: confirm
+#   - action: action_match_symptoms_to_condition
+#   - action: action_get_nhs_info
+#   - action: utter_ask_helpful
+
+#$###################################$##########################$#################
+
+# - rule: greet everytime the user greets
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+
+# - rule: Get more info when user reports a symptom
+#   steps:
+#   - intent: report_symptom
+#   - action: utter_empathize_get_more_info
+
+# - rule: Fetch NHS info after condition match
+#   steps:
+#   - action: action_match_symptoms_to_condition
+#   - action: action_get_nhs_info
+#   wait_for_user_input: false
+
+
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+  
+# - rule: submit form automatically
+#   steps:
+#   - slot_was_set:
+#       - requested_slot: null
+#   - action: action_deactivate_loop
+#   - active_loop: null
+#   - action: utter_thank_you_and_check_nhs
+#   wait_for_user_input: false
+
+
+# - rule: get nhs info
+#   condition:
+#   - slot_was_set:
+#       - symptoms  # This ensures the rule runs only when symptoms exist
+#   steps:
+#   - action: action_match_symptoms_to_condition
+#   - slot_was_set:
+#     - requested_slot: condition
+#   wait_for_user_input: false
+  

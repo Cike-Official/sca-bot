@@ -1,0 +1,43 @@
+name: Rasa Training & Testing
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  training-testing:
+    name: Training and Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Rasa Train-Test Model GitHub Action
+        uses: RasaHQ/rasa-train-test-gha@v2.3.0
+        with:
+          requirements_file: requirements.txt
+          data_validate: true
+
+          # disable model training for mow
+          # rasa_train: true  
+          # train_type: all
+
+          rasa_test: true
+          test_type: all
+          cross_validation: true
+          test_nlu_args: '--folds 3' # for cross validation only
+          publish_summary: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+# NO uploading of models for now
+
+      # - name: Upload model
+      #   if: github.ref == 'refs/heads/master'
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: model
+      #     path: models

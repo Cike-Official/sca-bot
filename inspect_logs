@@ -1,0 +1,18 @@
+2025-02-28 16:39:24,658 [INFO ]  Starting Rasa server on http://0.0.0.0:5005
+2025-02-28 16:39:27,762 [INFO ]  Loading model models/20250228-163228-snowy-lake.tar.gz...
+2025-02-28 16:39:28,236 [INFO ]  [[32m[1minfo     [0m] [1mdomain.from_yaml.validating[0m
+2025-02-28 16:40:17,334 [INFO ]  Rasa server is up and running.
+2025-02-28 16:40:17,652 [INFO ]  Starting worker [354051]
+2025-02-28 16:42:08,493 [ERROR]  Task was destroyed but it is pending!
+task: <Task pending name='Task-338' coro=<WebsocketFrameAssembler.get() running at /home/cike/.pyenv/versions/3.10.16/envs/acad/lib/python3.10/site-packages/sanic/server/websockets/frame.py:117> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-02-28 18:17:41,610 [INFO ]  Stopping worker [354051]
+2025-02-28 18:17:42,098 [ERROR]  Task was destroyed but it is pending!
+task: <Task pending name='Task-58' coro=<WebsocketFrameAssembler.get() running at /home/cike/.pyenv/versions/3.10.16/envs/acad/lib/python3.10/site-packages/sanic/server/websockets/frame.py:117> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-02-28 18:17:42,099 [ERROR]  Task was destroyed but it is pending!
+task: <Task pending name='Task-536' coro=<WebsocketFrameAssembler.get() running at /home/cike/.pyenv/versions/3.10.16/envs/acad/lib/python3.10/site-packages/sanic/server/websockets/frame.py:117> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-02-28 18:17:42,099 [ERROR]  Task was destroyed but it is pending!
+task: <Task pending name='Task-1407' coro=<WebsocketFrameAssembler.get() running at /home/cike/.pyenv/versions/3.10.16/envs/acad/lib/python3.10/site-packages/sanic/server/websockets/frame.py:117> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-02-28 18:17:42,099 [ERROR]  Task was destroyed but it is pending!
+task: <Task pending name='Task-1459' coro=<WebsocketFrameAssembler.get() running at /home/cike/.pyenv/versions/3.10.16/envs/acad/lib/python3.10/site-packages/sanic/server/websockets/frame.py:117> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-02-28 18:17:42,099 [ERROR]  Task was destroyed but it is pending!
+task: <Task pending name='Task-1549' coro=<WebsocketFrameAssembler.get() running at /home/cike/.pyenv/versions/3.10.16/envs/acad/lib/python3.10/site-packages/sanic/server/websockets/frame.py:117> wait_for=<Future pending cb=[Task.task_wakeup()]>>

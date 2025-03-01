@@ -1,0 +1,49 @@
+{
+  "age_group": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2.0,
+    "confused_with": {}
+  },
+  "duration": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2.0,
+    "confused_with": {}
+  },
+  "symptoms": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 4.0,
+    "confused_with": {}
+  },
+  "medications": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1.0,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 9.0
+  },
+  "macro avg": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 9.0
+  },
+  "weighted avg": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 9.0
+  },
+  "accuracy": 0.6086956521739131
+}
